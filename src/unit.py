@@ -17,11 +17,14 @@ class Model:
 class Unit:
     def __init__(self, files: int) -> None:
         self.__models: list[Model] = []
-        self.__ranks: int = 0
         self.__files = files
 
-    def addModel(self, model: Model) -> None:
-        self.__models.append(model)
+    def add(self, model: Model, amount: int) -> None:
+        for i in range(amount):
+            self.__models.append(model)
 
     def size(self) -> int:
         return len(self.__models)
+
+    def ranks(self) -> int:
+        return self.size() // self.__files
