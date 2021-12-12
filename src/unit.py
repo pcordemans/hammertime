@@ -23,12 +23,15 @@ class Model:
         it is organized in a number of ranks consisting of models in each file
 """
 class Unit:
-    """ Constructs a unit
+    """ Constructs a unit at a given position (x,y) under angle r, default position is (0,0) under 0 rad
             precondition: the number of files must be at least 5
     """
-    def __init__(self, files: int) -> None:
+    def __init__(self, files: int, posX: int = 0, posY: int = 0, angle: int = 0) -> None:
         self.__models: list[Model] = []
         self.__files = files
+        self.__x = posX
+        self.__y = posY
+        self.__r = angle
 
     """ Adds an amount of models to the unit
     """
@@ -45,3 +48,8 @@ class Unit:
     """
     def ranks(self) -> int:
         return self.size() // self.__files
+
+    """ Returns the number of models in the last rank of the unit
+    """
+    def lastRank(self) -> int:
+        return self.size() % self.__files
