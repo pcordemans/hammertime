@@ -2,6 +2,9 @@
         has a move which indicates its maximum movement in a single turn
         it is defined by its base with a given width and length
 """
+from typing import Tuple
+
+
 class Model:
     def __init__(self, move:int, width: int, length: int) -> None:
         self.__move = move
@@ -53,3 +56,6 @@ class Unit:
     """
     def lastRank(self) -> int:
         return self.size() % self.__files
+
+    def dimensions(self) -> Tuple[int,int]:
+        return (0,0)
